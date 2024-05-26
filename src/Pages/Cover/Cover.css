@@ -1,0 +1,10 @@
+.kfc {
+  /* Fallback color */
+  background-color: #f94526;
+
+  /* Gradient */
+  background-image: linear-gradient(125deg, #f94526, #f12928);
+}
+.colorBurn {
+  mix-blend-mode: color-burn;
+}

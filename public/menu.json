@@ -1,0 +1,86 @@
+[
+  {
+    "_id": "1",
+    "name": "12 PC Hot & Crispy Chicken",
+    "image": "https://i.ibb.co/BqQkDgk/combo2.png",
+    "price": 1299
+  },
+  {
+    "_id": "2",
+    "name": "KFC Big Treat",
+    "image": "https://i.ibb.co/VvLns4S/legCombo.png",
+    "price": 999
+  },
+  {
+    "_id": "3",
+    "name": "4 pcs Smoky Red Chicken",
+    "image": "https://i.ibb.co/xfNxpyZ/combo.png",
+    "price": 999
+  },
+  {
+    "_id": "4",
+    "name": "2 PC Hot & Crispy Chicken",
+    "image": "https://i.ibb.co/nj76F8W/legpis.png",
+    "price": 599
+  },
+  {
+    "_id": "5",
+    "name": "Texas BBQ Zinger Meal",
+    "image": "https://i.ibb.co/y0qH7g4/4hc.png",
+    "price": 579
+  },
+  {
+    "_id": "6",
+    "name": "Classic Zinger",
+    "image": " https://i.ibb.co/nw1xK0q/zB.png ",
+    "price": 579
+  },
+  {
+    "_id": "7",
+    "name": "Spicy Zinger",
+    "image": "https://i.ibb.co/XS93rry/sB.png",
+    "price": 579
+  },
+  {
+    "_id": "8",
+    "name": "Super Charger Burger",
+    "image": " https://i.ibb.co/z6dBSQt/sub.png",
+    "price": 579
+  },
+  {
+    "_id": "9",
+    "name": "Burger Combo",
+    "image": " https://i.ibb.co/cxVjmBw/rB.png",
+    "price": 519
+  },
+  {
+    "_id": "10",
+    "name": "Rice Box",
+    "image": "https://i.ibb.co/9WCN75V/rice.png",
+    "price": 519
+  },
+  {
+    "_id": "11",
+    "name": "Fries Large",
+    "image": " https://i.ibb.co/mt3Ckhj/fr.png",
+    "price": 519
+  },
+  {
+    "_id": "12",
+    "name": "Potato Wadges",
+    "image": "https://i.ibb.co/NtG8Ldm/potato.png",
+    "price": 519
+  },
+  {
+    "_id": "13",
+    "name": "Cola",
+    "image": "https://i.ibb.co/RBt1ZM0/cola.png",
+    "price": 50
+  },
+  {
+    "_id": "14",
+    "name": "Water",
+    "image": "https://i.ibb.co/r0qw2qF/water.png",
+    "price": 20
+  }
+]
