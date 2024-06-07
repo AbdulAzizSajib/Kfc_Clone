@@ -1,30 +1,43 @@
 import { Link, Outlet } from "react-router-dom";
 import useAuth from "./../../Components/Hook/useAuth";
-import { MdSpaceDashboard } from "react-icons/md";
+import { MdOutlineEditNote, MdSpaceDashboard } from "react-icons/md";
 import { FaHeart, FaHome, FaSearch } from "react-icons/fa";
-import { GrCart, GrUser } from "react-icons/gr";
+import { GrCart, GrUpdate, GrUser } from "react-icons/gr";
 import { BsChat } from "react-icons/bs";
-import { IoSettingsSharp } from "react-icons/io5";
+import { IoFastFood, IoSettingsSharp } from "react-icons/io5";
 import { LuLogOut } from "react-icons/lu";
 // import useCart from "../../Components/Hook/useCart";
 import { BiSolidFoodMenu } from "react-icons/bi";
+import useAdmin from "../../Components/Hook/useAdmin";
 
 const Dashboard = () => {
   const { user, logoutUser } = useAuth();
-  console.log(user);
+  // console.log(user);
   // const [cart] = useCart();
   //!logout
 
   const handleLogOut = () => {
     logoutUser();
   };
-  const isAdmin = true; // Replace this logic with your actual admin check  [user && user.role === "admin";]
+  const [isAdmin] = useAdmin(); // Replace this logic with your actual admin check  [user && user.role === "admin";]
   const navbar = [
     { name: "Home", icon: <FaHome />, link: "/" },
     { name: "Dashboard", icon: <MdSpaceDashboard />, link: "/dashboard" },
     { name: "Cart", icon: <GrCart />, link: "/dashboard/cart" },
     ...(isAdmin
-      ? [{ name: "All User", icon: <GrUser />, link: "/dashboard/allusers" }]
+      ? [
+          { name: "All User", icon: <GrUser />, link: "/dashboard/allusers" },
+          {
+            name: "Add Items",
+            icon: <IoFastFood />,
+            link: "/dashboard/addItems",
+          },
+          {
+            name: "Manage Items",
+            icon: <MdOutlineEditNote className="text-xl"></MdOutlineEditNote>,
+            link: "/dashboard/manageItems",
+          },
+        ]
       : []),
     { name: "Favourite", icon: <FaHeart />, link: "/favourite" },
     { name: "Search", icon: <FaSearch />, link: "/search" },
@@ -139,44 +152,6 @@ const Dashboard = () => {
             </div>
           </>
         )}
-        {/* <div className="divide-y dark:divide-gray-300">
-          <ul className="pt-2 pb-4 space-y-1 text-sm">
-            {navbar.map((nav, index) => (
-              <div key={index}>
-                <li>
-                  <Link
-                    to={nav.link}
-                    className="flex items-center p-2 space-x-3 rounded-md hover:underline"
-                  >
-                    {nav.icon}
-                    <span>{nav.name}</span>
-                  </Link>
-                </li>
-              </div>
-            ))}
-          </ul>
-          <ul className="pt-4 pb-2 space-y-1 text-sm">
-            <li>
-              <Link
-                to=""
-                className="flex items-center p-2 space-x-3 rounded-md"
-              >
-                <IoSettingsSharp />
-                <span>Settings</span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/"
-                onClick={handleLogOut}
-                className="flex items-center p-2 space-x-3 rounded-md"
-              >
-                <LuLogOut></LuLogOut>
-                <span>Logout</span>
-              </Link>
-            </li>
-          </ul>
-        </div> */}
       </div>
       <div className="flex-1 min-h-screen space-y-2 overflow-y-auto ml-60 ">
         <Outlet></Outlet>

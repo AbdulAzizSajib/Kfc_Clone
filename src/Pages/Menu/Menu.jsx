@@ -91,7 +91,7 @@ const Menu = () => {
           },
           1024: {
             slidesPerView: 6,
-            spaceBetween: 40,
+            spaceBetween: 0,
           },
         }}
         slidesPerView={1}
@@ -102,9 +102,9 @@ const Menu = () => {
       >
         {menu.map((item) => (
           <SwiperSlide key={item._id}>
-            <div className="flex flex-col py-8">
+            <div className="flex flex-col items-center py-8 ">
               <img
-                className="object-cover w-full h-full transition-all duration-300 hover:-translate-y-2 hover:scale-110"
+                className="object-cover w-[250px] h-[250px] transition-all duration-300  hover:-translate-y-2 hover:scale-110"
                 src={item.image}
                 alt=""
               />

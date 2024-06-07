@@ -4,13 +4,18 @@ import { FaGoogle } from "react-icons/fa";
 import useAxiosPublic from "../Hook/useAxiosPublic";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useState } from "react";
+
+import Spiner from "../Spiner/Spiner";
 
 const SocialLogin = () => {
+  const [Loading, setLoading] = useState(false);
   const axiosPublic = useAxiosPublic();
   const navigate = useNavigate();
   const { googleLogin } = useAuth();
 
   const handleSocialLogin = (media) => {
+    // setLoading(true);
     media()
       .then((res) => {
         console.log(res.data);
@@ -24,12 +29,16 @@ const SocialLogin = () => {
           .then((result) => {
             console.log(result.data);
             toast.success("Login Successfully");
-            navigate("/");
+            setTimeout(() => {
+              setLoading(false);
+              navigate("/");
+            }, 4000);
           })
           .catch((err) => {
             const errorMessage = err.message;
             console.log(errorMessage);
             toast.error("Failed to log in");
+            setLoading(false);
           });
       })
       .catch((err) => {
@@ -41,15 +50,18 @@ const SocialLogin = () => {
 
   return (
     <div className="flex items-center justify-start w-full mt-3 border">
-      <button
-        onClick={() => handleSocialLogin(googleLogin)}
-        className="w-full text-lg btn btn-outline"
-      >
-        <FaGoogle />
-        Log in with Google
-      </button>
-      {/* Ensure ToastContainer is here as well */}
       <ToastContainer />
+      {Loading ? (
+        <Spiner></Spiner>
+      ) : (
+        <button
+          onClick={() => handleSocialLogin(googleLogin)}
+          className="w-full text-lg btn btn-outline"
+        >
+          <FaGoogle />
+          Log in with Google
+        </button>
+      )}
     </div>
   );
 };

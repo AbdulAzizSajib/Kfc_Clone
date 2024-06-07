@@ -14,7 +14,11 @@ import Cart from "./Pages/Dashboard/Cart";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import Alluser from "./Pages/Dashboard/Alluser";
 const queryClient = new QueryClient();
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import { HelmetProvider } from "react-helmet-async";
+import AddItems from "./Pages/Dashboard/AddItems";
+import AdminRoute from "./Components/AdminRoute/AdminRoute";
+import ManageItems from "./Pages/Dashboard/ManageItems";
+import UpdateItems from "./Pages/Dashboard/UpdateItems";
 
 const router = createBrowserRouter([
   {
@@ -48,14 +52,49 @@ const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
+      //Normal User Route
       {
         path: "/dashboard/cart",
         element: <Cart></Cart>,
       },
 
+      //admin route
+
       {
         path: "/dashboard/allusers",
-        element: <Alluser></Alluser>,
+        element: (
+          <AdminRoute>
+            <Alluser></Alluser>
+          </AdminRoute>
+        ),
+      },
+
+      {
+        path: "/dashboard/addItems",
+        element: (
+          <AdminRoute>
+            <AddItems></AddItems>
+          </AdminRoute>
+        ),
+      },
+
+      {
+        path: "/dashboard/manageItems",
+        element: (
+          <AdminRoute>
+            <ManageItems></ManageItems>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/updateItems/:id",
+        element: (
+          <AdminRoute>
+            <UpdateItems></UpdateItems>
+          </AdminRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/menu/${params.id}`),
       },
     ],
   },
