@@ -68,6 +68,13 @@ const Login = () => {
         //   ></progress>
         // </div>
         <div className="flex flex-wrap">
+          <div className="relative hidden h-screen bg-black pointer-events-none select-none md:block md:w-1/2">
+            <img
+              className="absolute top-0 object-cover w-full h-full -z-1 opacity-90"
+              src="https://images.unsplash.com/photo-1688264529550-04f8196964b6?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            />
+          </div>
+
           <div className="flex flex-col w-full md:w-1/2">
             <div className="flex justify-center pt-12 md:-mb-24 md:justify-start md:pl-12">
               <a
@@ -78,6 +85,11 @@ const Login = () => {
               </a>
             </div>
             <div className="lg:w-[28rem] mx-auto my-auto flex flex-col justify-center pt-8 md:justify-start md:px-6 md:pt-0">
+              {/* <div className="flex flex-col items-center p-3 mb-4 text-xl font-light bg-slate-400 rounded-2xl">
+                <p>Master Control</p>
+                <h2>ID: admin@gmail.com</h2>
+                <p> password : 123456</p>
+              </div> */}
               <p className="text-5xl font-bold text-left uppercase">Sign in</p>
               <p className="text-left text-gray-500 capitalize ">
                 Please enter your details.
@@ -140,12 +152,6 @@ const Login = () => {
                 </p>
               </div>
             </div>
-          </div>
-          <div className="relative hidden h-screen bg-black pointer-events-none select-none md:block md:w-1/2">
-            <img
-              className="absolute top-0 object-cover w-full h-full -z-1 opacity-90"
-              src="https://images.unsplash.com/photo-1688264529550-04f8196964b6?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            />
           </div>
         </div>
       )}
